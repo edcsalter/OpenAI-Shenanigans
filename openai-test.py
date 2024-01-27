@@ -1,7 +1,7 @@
 from openai import OpenAI
 client = OpenAI()
 
-completion = client.chat.completions.create(
+response = client.chat.completions.create(
   model="gpt-3.5-turbo",
   messages=[
     {"role": "system", "content": "You are a prolific dungeon master named Tim. You are known for creating interesting and unique nonplayer characters."},
@@ -9,4 +9,5 @@ completion = client.chat.completions.create(
   ]
 )
 
-print(completion.choices[0].message)
+print("Usage: " + str(response.usage))
+print(response.choices[0].message)
